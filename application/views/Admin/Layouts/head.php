@@ -14,6 +14,14 @@
     <title>ADMIN SISI JALAN KOPI</title>
 
     <link href="<?= base_url('asset/adminkit/examples/') ?>css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('asset/trix-main/dist/') ?>trix.css">
+    <script type="text/javascript" src="<?= base_url('asset/trix-main/dist/') ?>trix.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <font></font>
+   
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    
+
 </head>
 
 <body>

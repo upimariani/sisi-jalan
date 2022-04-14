@@ -4,38 +4,70 @@
         <h1 class="h3 mb-3">Form Layouts</h1>
 
         <div class="row">
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Basic form</h5>
-                        <h6 class="card-subtitle text-muted">Default Bootstrap form layout.</h6>
+                        <h5 class="card-title">Create New User</h5>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label">Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
+                        <form action="<?= base_url('admin/cuser') ?>" method="POST">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama User</label>
+                                        <input type="text" value="<?= set_value('nama') ?>" name="nama" class="form-control" placeholder="Masukkan Nama User">
+                                        <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Alamat</label>
+                                        <input type="text" value="<?= set_value('alamat') ?>" name="alamat" class="form-control" placeholder="Masukkan Alamat User">
+                                        <?= form_error('alamat', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Telepon</label>
+                                        <input type="number" value="<?= set_value('no_hp') ?>" name="no_hp" class="form-control" placeholder="Masukkan No Telepon">
+                                        <?= form_error('no_hp', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Level User</label>
+                                        <select class="form-control" name="level">
+                                            <option value="">---Pilih Level User---</option>
+                                            <option value="1" <?php if (set_value('level') == '1') {
+                                                                    echo 'selected';
+                                                                } ?>>Admin</option>
+                                            <option value="2" <?php if (set_value('level') == '2') {
+                                                                    echo 'selected';
+                                                                } ?>>Owner</option>
+                                        </select>
+                                        <?= form_error('level', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Textarea</label>
-                                <textarea class="form-control" placeholder="Textarea" rows="1"></textarea>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" value="<?= set_value('username') ?>" name="username" class="form-control" placeholder="Masukkan Username">
+                                        <?= form_error('username', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <input type="text" name="password" value="<?= set_value('password') ?>" class="form-control" placeholder="Masukkan Password">
+                                        <?= form_error('password', '<small class="form-text text-danger">', '</small>'); ?>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label w-100">File input</label>
-                                <input type="file">
-                                <small class="form-text text-muted">Example block-level help text here.</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <span class="custom-control-label">Check me out</span>
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>
                 </div>

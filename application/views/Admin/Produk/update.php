@@ -1,41 +1,39 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Form Layouts</h1>
+        <h1 class="h3 mb-3">Update Produk</h1>
 
         <div class="row">
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Basic form</h5>
-                        <h6 class="card-subtitle text-muted">Default Bootstrap form layout.</h6>
+                        <h5 class="card-title">Produk</h5>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label">Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Textarea</label>
-                                <textarea class="form-control" placeholder="Textarea" rows="1"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label w-100">File input</label>
-                                <input type="file">
-                                <small class="form-text text-muted">Example block-level help text here.</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <span class="custom-control-label">Check me out</span>
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <?php echo form_open_multipart('admin/cproduk/update/' . $produk->id_produk); ?>
+                        <div class="form-group">
+                            <label class="form-label">Nama Produk</label>
+                            <input type="text" name="nama" value="<?= $produk->nama_produk ?>" class="form-control" placeholder="Masukkan Nama Produk">
+                            <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Harga Produk</label>
+                            <input type="number" name="harga" value="<?= $produk->harga ?>" class="form-control" placeholder="Masukkan Harga Produk">
+                            <?= form_error('harga', '<small class="form-text text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Deskripsi</label>
+                            <input id="x" name="deskripsi" type="hidden" name="content">
+                            <trix-editor input="x"><?= $produk->deskripsi ?></trix-editor>
+                            <?= form_error('deskripsi', '<small class="form-text text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label w-100">Foto Produk</label>
+                            <img style="width: 150px;" src="<?= base_url('asset/foto-produk/' . $produk->foto) ?>"><br>
+                            <input type="file" name="gambar">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="<?= base_url('admin/cproduk') ?>">Kembali</a>
                         </form>
                     </div>
                 </div>

@@ -1,70 +1,62 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Tables</h1>
-        <a href="<?= base_url('admin/cproduk/create') ?>">Create produk</a>
+        <h1 class="h3 mb-3">Produk Sisi Jalan Kopi</h1>
+
+        <a class="btn btn-primary mb-3" href="<?= base_url('admin/cproduk/create') ?>">Create produk</a>
+        <?php
+        if ($this->session->userdata('success')) {
+        ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>Hello there!</strong> <?= $this->session->userdata('success') ?>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+
+
         <div class="row">
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Basic Table</h5>
-                        <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
+                        <h5 class="card-title">Informasi Produk</h5>
                     </div>
-                    <table class="table">
+                    <table id="myTable" class="table">
                         <thead>
                             <tr>
-                                <th style="width:40%;">Name</th>
-                                <th style="width:25%">Phone Number</th>
-                                <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                <th style="width:20%;">Gambar</th>
+                                <th style="width:25%">Nama Produk</th>
+                                <th class="d-none d-md-table-cell" style="width:25%">Harga Produk</th>
+                                <th class="d-none d-md-table-cell" style="width:25%">Deskripsi</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Vanessa Tucker</td>
-                                <td>864-348-0485</td>
-                                <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>William Harris</td>
-                                <td>914-939-2458</td>
-                                <td class="d-none d-md-table-cell">May 15, 1948</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sharon Lessman</td>
-                                <td>704-993-5435</td>
-                                <td class="d-none d-md-table-cell">September 14, 1965</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Christina Mason</td>
-                                <td>765-382-8195</td>
-                                <td class="d-none d-md-table-cell">April 2, 1971</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Robin Schneiders</td>
-                                <td>202-672-1407</td>
-                                <td class="d-none d-md-table-cell">October 12, 1966</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($produk as $key => $value) {
+                            ?>
+                                <tr>
+                                    <td><img style="width: 150px;" src="<?= base_url('asset/foto-produk/' . $value->foto) ?>"></td>
+                                    <td><?= $value->nama_produk ?></td>
+                                    <td class="d-none d-md-table-cell">Rp. <?= number_format($value->harga, 0) ?></td>
+                                    <td class="d-none d-md-table-cell"><?= $value->deskripsi ?></td>
+                                    <td class="table-action">
+                                        <a href="<?= base_url('admin/cproduk/update/' . $value->id_produk) ?>"><i class="align-middle" data-feather="edit-2"></i></a>
+                                        <a href="<?= base_url('admin/cproduk/delete/' . $value->id_produk) ?>"><i class="align-middle" data-feather="trash"></i></a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>

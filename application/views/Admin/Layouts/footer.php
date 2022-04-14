@@ -30,7 +30,18 @@
 
 <script src="<?= base_url('asset/adminkit/examples/') ?>js/vendor.js"></script>
 <script src="<?= base_url('asset/adminkit/examples/') ?>js/app.js"></script>
-
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000)
+</script>
 <script>
     $(function() {
         var ctx = document.getElementById('chartjs-dashboard-line').getContext("2d");
