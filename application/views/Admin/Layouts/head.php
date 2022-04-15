@@ -16,11 +16,9 @@
     <link href="<?= base_url('asset/adminkit/examples/') ?>css/app.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/trix-main/dist/') ?>trix.css">
     <script type="text/javascript" src="<?= base_url('asset/trix-main/dist/') ?>trix.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <font></font>
-   
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
 
 </head>
 
@@ -33,41 +31,51 @@
                 </a>
 
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cDashboard') {
+                                                echo 'active';
+                                            }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cDashboard') ?>">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                            <i class="align-middle" data-feather="compass"></i> <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
                     <li class="sidebar-header">
                         Pages
                     </li>
 
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cUser') {
+                                                echo 'active';
+                                            }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cUser') ?>">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">User</span>
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cProduk') {
+                                                echo 'active';
+                                            }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cProduk') ?>">
-                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Produk</span>
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Produk</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cDiskon') {
+                                                echo 'active';
+                                            }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cDiskon') ?>">
                             <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Diskon</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksi') {
+                                                echo 'active';
+                                            }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cTransaksi') ?>">
                             <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Transaksi</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="pages-blank.html">
+                        <a class="sidebar-link" href="<?= base_url('admin/clogin/logout') ?>">
                             <i class="align-middle" data-feather="book"></i> <span class="align-middle">LogOut</span>
                         </a>
                     </li>

@@ -7,6 +7,10 @@ class mProduk extends CI_Model
     {
         $this->db->insert('produk', $data);
     }
+    public function insert_diskon($data)
+    {
+        $this->db->insert('diskon', $data);
+    }
     public function select()
     {
         $this->db->select('*');
@@ -29,6 +33,11 @@ class mProduk extends CI_Model
     {
         $this->db->where('id_produk', $id);
         $this->db->delete('produk');
+    }
+    public function delete_diskon($id)
+    {
+        $this->db->where('id_produk', $id);
+        $this->db->delete('diskon');
     }
 }
 

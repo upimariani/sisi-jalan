@@ -22,6 +22,7 @@ class cUser extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
+            $this->protect->protect_admin();
             $data = array(
                 'user' => $this->mUser->select()
             );
@@ -41,6 +42,26 @@ class cUser extends CI_Controller
             $this->session->set_flashdata('success', 'Data User Berhasil Ditambahkan!');
             redirect('admin/cuser');
         }
+    }
+    public function update($id)
+    {
+        $data = array(
+            'nama_user' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
+            'no_hp' => $this->input->post('no_hp'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'level_user' => $this->input->post('level')
+        );
+        $this->mUser->update($id, $data);
+        $this->session->set_flashdata('success', 'Data User Berhasil Diperbaharui!');
+        redirect('admin/cuser');
+    }
+    public function delete($id)
+    {
+        $this->mUser->delete($id);
+        $this->session->set_flashdata('success', 'Data User Berhasil Dihapus!');
+        redirect('admin/cuser');
     }
 }
 

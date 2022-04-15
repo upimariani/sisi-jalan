@@ -40,12 +40,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            foreach ($produk as $key => $value) {
-                            ?>
+                            <?php foreach ($produk as $key => $value) { ?>
                                 <tr>
                                     <td><img style="width: 150px;" src="<?= base_url('asset/foto-produk/' . $value->foto) ?>"></td>
-                                    <td><?= $value->nama_produk ?></td>
+                                    <td>
+                                        <h4><?= $value->nama_produk ?></h4>
+                                    </td>
                                     <td class="d-none d-md-table-cell">Rp. <?= number_format($value->harga, 0) ?></td>
                                     <td class="d-none d-md-table-cell"><?= $value->deskripsi ?></td>
                                     <td class="table-action">
@@ -53,10 +53,7 @@
                                         <a href="<?= base_url('admin/cproduk/delete/' . $value->id_produk) ?>"><i class="align-middle" data-feather="trash"></i></a>
                                     </td>
                                 </tr>
-                            <?php
-                            }
-                            ?>
-
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

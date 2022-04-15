@@ -10,61 +10,34 @@
                         <h5 class="card-title">Basic Table</h5>
                         <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                     </div>
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
-                                <th style="width:40%;">Name</th>
-                                <th style="width:25%">Phone Number</th>
-                                <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                <th>Nama Produk</th>
+                                <th>Nama Diskon</th>
+                                <th>Diskon</th>
+                                <th>Tanggal</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Vanessa Tucker</td>
-                                <td>864-348-0485</td>
-                                <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>William Harris</td>
-                                <td>914-939-2458</td>
-                                <td class="d-none d-md-table-cell">May 15, 1948</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sharon Lessman</td>
-                                <td>704-993-5435</td>
-                                <td class="d-none d-md-table-cell">September 14, 1965</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Christina Mason</td>
-                                <td>765-382-8195</td>
-                                <td class="d-none d-md-table-cell">April 2, 1971</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Robin Schneiders</td>
-                                <td>202-672-1407</td>
-                                <td class="d-none d-md-table-cell">October 12, 1966</td>
-                                <td class="table-action">
-                                    <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                    <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($diskon as $key => $value) {
+                            ?>
+                                <tr>
+                                    <td><?= $value->nama_produk ?></td>
+                                    <td><?= $value->nama_diskon ?> </td>
+                                    <td><?= $value->besar ?> %</td>
+                                    <td><?= $value->tgl_selesai ?></td>
+                                    <td class="table-action">
+                                        <button class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $value->id_diskon ?>"><i class="align-middle" data-feather="edit-2"></i></button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus<?= $value->id_diskon ?>"><i class=" align-middle" data-feather="trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -72,33 +45,39 @@
             <div class="col-12 col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Basic form</h5>
-                        <h6 class="card-subtitle text-muted">Default Bootstrap form layout.</h6>
+                        <h5 class="card-title">Create New Diskon</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="<?= base_url('admin/cdiskon') ?>" method="POST">
                             <div class="form-group">
-                                <label class="form-label">Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
+                                <label class="form-label">Produk</label>
+                                <select class="form-control" name="produk">
+                                    <option value="">---Pilih Produk---</option>
+                                    <?php
+                                    foreach ($produk as $key => $value) {
+                                    ?>
+                                        <option value="<?= $value->id_produk ?>"><?= $value->nama_produk ?></option>
+                                    <?php
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <label class="form-label">Nama Diskon</label>
+                                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Diskon ">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Textarea</label>
-                                <textarea class="form-control" placeholder="Textarea" rows="1"></textarea>
+                                <label class="form-label">Besar Diskon</label>
+                                <input type="number" name="besar" class="form-control" placeholder="Masukkan Besar Diskon">
                             </div>
                             <div class="form-group">
-                                <label class="form-label w-100">File input</label>
-                                <input type="file">
-                                <small class="form-text text-muted">Example block-level help text here.</small>
+                                <label class="form-label">Tanggal Mulai</label>
+                                <input type="text" value="<?= date('D-M-Y') ?>" name="tgl_mulai" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <span class="custom-control-label">Check me out</span>
-                                </label>
+                                <label class="form-label">Tanggal Selesai</label>
+                                <input type="text" name="tgl_selesai" class="datepicker form-control" placeholder="Masukkan Tanggal Selesai">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -108,3 +87,90 @@
         </div>
     </div>
 </main>
+
+
+<?php
+foreach ($diskon as $key => $items) {
+?>
+    <div class="modal fade" id="edit<?= $items->id_diskon ?>" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Default modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url('admin/cdiskon/update/' . $items->id_produk) ?>" method="POST">
+                    <div class="modal-body m-3">
+                        <div class="form-group">
+                            <label class="form-label">Produk</label>
+                            <select class="form-control" name="produk" disabled>
+                                <option value="">---Pilih Produk---</option>
+                                <?php
+                                foreach ($produk as $key => $value) {
+                                ?>
+                                    <option value="<?= $value->id_produk ?>" <?php if ($value->id_produk == $items->id_produk) {
+                                                                                    echo 'selected';
+                                                                                } ?>><?= $value->nama_produk ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nama Diskon</label>
+                            <input type="text" value="<?= $items->nama_diskon ?>" name="nama" class="form-control" placeholder="Masukkan Nama Diskon ">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Besar Diskon</label>
+                            <input type="number" value="<?= $items->besar ?>" name="besar" class="form-control" placeholder="Masukkan Besar Diskon">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal Mulai</label>
+                            <input type="text" value="<?= date('D-M-Y') ?>" name="tgl_mulai" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal Selesai</label>
+                            <input type="text" value="<?= $items->tgl_selesai ?>" name="tgl_selesai" class="datepicker form-control" placeholder="Masukkan Tanggal Selesai">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php
+}
+?>
+
+<?php
+foreach ($diskon as $key => $value) {
+?>
+    <div class="modal fade" id="hapus<?= $value->id_diskon ?>" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="<?= base_url('admin/cdiskon/delete/' . $value->id_produk) ?>" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Diskon</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <p class="mb-0">Apakah Anda Yakin Menghapus Data Diskon?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php
+}
+?>

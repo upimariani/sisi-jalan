@@ -11,6 +11,8 @@
                     </div>
                     <div class="card-body">
                         <?php echo form_open_multipart('admin/cproduk/create'); ?>
+                        <?php $id_produk = strtoupper(random_string('alnum', 4)); ?>
+                        <input type="hidden" name="id" value="<?= $id_produk ?>">
                         <div class="form-group">
                             <label class="form-label">Nama Produk</label>
                             <input type="text" value="<?= set_value('nama') ?>" name="nama" class="form-control" placeholder="Masukkan Nama Produk">

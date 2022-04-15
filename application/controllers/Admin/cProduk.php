@@ -12,6 +12,7 @@ class cProduk extends CI_Controller
 
     public function index()
     {
+        $this->protect->protect_admin();
         $data = array(
             'produk' => $this->mProduk->select()
         );
@@ -21,6 +22,7 @@ class cProduk extends CI_Controller
     }
     public function create()
     {
+        $this->protect->protect_admin();
         $this->form_validation->set_rules('nama', 'Nama Produk', 'required');
         $this->form_validation->set_rules('harga', 'Harga Produk', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Produk', 'required');
@@ -45,12 +47,24 @@ class cProduk extends CI_Controller
             } else {
                 $upload_data = $this->upload->data();
                 $data = array(
+                    'id_produk' => $this->input->post('id'),
                     'nama_produk' => $this->input->post('nama'),
                     'harga' => $this->input->post('harga'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'foto' => $upload_data['file_name']
                 );
                 $this->mProduk->insert($data);
+
+                //memasukkan data diskon
+                $diskon = array(
+                    'id_produk' => $this->input->post('id'),
+                    'nama_diskon' => '0',
+                    'besar' => '0',
+                    'tgl_mulai' => '0',
+                    'tgl_selesai' => '0'
+                );
+                $this->mProduk->insert_diskon($diskon);
+
                 $this->session->set_flashdata('success', 'Data Produk Berhasil Ditambahkan!');
                 redirect('Admin/cproduk');
             }
@@ -108,6 +122,7 @@ class cProduk extends CI_Controller
     }
     public function delete($id)
     {
+        $this->mProduk->delete_diskon($id);
         $this->mProduk->delete($id);
         $this->session->set_flashdata('success', 'Data Produk Berhasil Dihapus !!!');
         redirect('Admin/cproduk');

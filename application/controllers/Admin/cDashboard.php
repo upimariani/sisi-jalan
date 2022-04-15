@@ -6,6 +6,7 @@ class cDashboard extends CI_Controller
 
     public function index()
     {
+        $this->protect->protect_admin();
         $this->load->view('Admin/Layouts/head');
         $this->load->view('Admin/dashboard/dashboard');
         $this->load->view('Admin/Layouts/footer');
