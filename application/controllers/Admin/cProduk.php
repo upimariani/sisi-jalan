@@ -25,6 +25,7 @@ class cProduk extends CI_Controller
         $this->protect->protect_admin();
         $this->form_validation->set_rules('nama', 'Nama Produk', 'required');
         $this->form_validation->set_rules('harga', 'Harga Produk', 'required');
+        $this->form_validation->set_rules('stok', 'Stok Produk', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Produk', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -50,6 +51,7 @@ class cProduk extends CI_Controller
                     'id_produk' => $this->input->post('id'),
                     'nama_produk' => $this->input->post('nama'),
                     'harga' => $this->input->post('harga'),
+                    'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'foto' => $upload_data['file_name']
                 );
@@ -74,6 +76,7 @@ class cProduk extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'Nama Produk', 'required');
         $this->form_validation->set_rules('harga', 'Harga Produk', 'required');
+        $this->form_validation->set_rules('stok', 'Stok Produk', 'required');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Produk', 'required');
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']          = './asset/foto-produk';
@@ -97,6 +100,7 @@ class cProduk extends CI_Controller
                 $data = array(
                     'nama_produk' => $this->input->post('nama'),
                     'harga' => $this->input->post('harga'),
+                    'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'foto' => $upload_data['file_name']
                 );
@@ -107,6 +111,7 @@ class cProduk extends CI_Controller
             $data = array(
                 'nama_produk' => $this->input->post('nama'),
                 'harga' => $this->input->post('harga'),
+                'stok' => $this->input->post('stok'),
                 'deskripsi' => $this->input->post('deskripsi')
             );
             $this->mProduk->update($id, $data);

@@ -22,6 +22,11 @@
                             <?= form_error('harga', '<small class="form-text text-danger">', '</small>'); ?>
                         </div>
                         <div class="form-group">
+                            <label class="form-label">Stok Produk</label>
+                            <input type="number" value="<?= $produk->stok ?> ?>" name="stok" class="form-control" placeholder="Masukkan Harga Produk">
+                            <?= form_error('stok', '<small class="form-text text-danger">', '</small>'); ?>
+                        </div>
+                        <div class="form-group">
                             <label class="form-label">Deskripsi</label>
                             <input id="x" name="deskripsi" type="hidden" name="content">
                             <trix-editor input="x"><?= $produk->deskripsi ?></trix-editor>

@@ -37,28 +37,33 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Basic Table</h5>
+                                <h5 class="card-title">Pesanan Masuk</h5>
                                 <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:40%;">Name</th>
-                                        <th style="width:25%">Phone Number</th>
-                                        <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                        <th>No</th>
+                                        <th>Atas Nama</th>
+                                        <th>Alamat Pengiriman</th>
+                                        <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Vanessa Tucker</td>
-                                        <td>864-348-0485</td>
-                                        <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                        <td class="table-action">
-                                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($status['pesanan_masuk'] as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -66,28 +71,33 @@
                     <div class="tab-pane fade" id="konfirmasi" role="tabpanel">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Basic Table</h5>
+                                <h5 class="card-title">Konfirmasi Pembayaran</h5>
                                 <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:40%;">Name</th>
-                                        <th style="width:25%">Phone Number</th>
-                                        <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                        <th>No</th>
+                                        <th>Atas Nama</th>
+                                        <th>Alamat Pengiriman</th>
+                                        <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Vanessa Tucker</td>
-                                        <td>864-348-0485</td>
-                                        <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                        <td class="table-action">
-                                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($status['konfirmasi'] as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -95,28 +105,33 @@
                     <div class="tab-pane fade" id="diproses" role="tabpanel">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Basic Table</h5>
+                                <h5 class="card-title">Pesanan Diproses</h5>
                                 <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:40%;">Name</th>
-                                        <th style="width:25%">Phone Number</th>
-                                        <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                        <th>No</th>
+                                        <th>Atas Nama</th>
+                                        <th>Alamat Pengiriman</th>
+                                        <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Vanessa Tucker</td>
-                                        <td>864-348-0485</td>
-                                        <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                        <td class="table-action">
-                                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($status['diproses'] as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -124,28 +139,33 @@
                     <div class="tab-pane fade" id="dikirim" role="tabpanel">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Basic Table</h5>
+                                <h5 class="card-title">Pesanan Dikirim</h5>
                                 <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:40%;">Name</th>
-                                        <th style="width:25%">Phone Number</th>
-                                        <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                        <th>No</th>
+                                        <th>Atas Nama</th>
+                                        <th>Alamat Pengiriman</th>
+                                        <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Vanessa Tucker</td>
-                                        <td>864-348-0485</td>
-                                        <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                        <td class="table-action">
-                                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($status['dikirim'] as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -153,28 +173,33 @@
                     <div class="tab-pane fade" id="selesai" role="tabpanel">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Basic Table</h5>
+                                <h5 class="card-title">Pesanan Selesai</h5>
                                 <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                             </div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:40%;">Name</th>
-                                        <th style="width:25%">Phone Number</th>
-                                        <th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                        <th>No</th>
+                                        <th>Atas Nama</th>
+                                        <th>Alamat Pengiriman</th>
+                                        <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Vanessa Tucker</td>
-                                        <td>864-348-0485</td>
-                                        <td class="d-none d-md-table-cell">June 21, 1961</td>
-                                        <td class="table-action">
-                                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    foreach ($status['selesai'] as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
