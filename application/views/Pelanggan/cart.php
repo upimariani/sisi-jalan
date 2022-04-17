@@ -10,7 +10,7 @@
 <section class="section-reservation bg1-pattern p-t-100 p-b-113">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 p-b-30">
+            <div class="col-lg-12">
                 <div class="t-center">
                     <span class="tit2 t-center">
                         Reservation
@@ -19,6 +19,10 @@
                         Book table
                     </h3>
                 </div>
+            </div>
+            <div class="col-lg-9 p-b-30">
+
+                <?php echo form_open('pelanggan/chome/update_cart'); ?>
                 <table class="table table-striped">
                     <thead>
                         <th>No</th>
@@ -32,23 +36,45 @@
                     <tbody>
                         <?php
                         $no = 1;
+                        $i = 1;
                         foreach ($this->cart->contents() as $key => $value) {
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $value['picture']; ?></td>
+                                <td><img style="width: 150px;" class="rounded-circle" src="<?= base_url('asset/foto-produk/' . $value['picture']) ?>"></td>
                                 <td><?= $value['name'] ?></td>
-                                <td><?= $value['qty'] ?></td>
-                                <td><?= $value['price'] ?></td>
-                                <td><?= $value['id'] ?></td>
-                                <td></td>
+                                <td>
+                                    <input name="<?= $i . '[qty]' ?>" min="1" max="<?= $value['stok'] ?>" type="number" value="<?= $value['qty'] ?>">
+                                    <button type="submit" class="btn btn-success">+</button>
+                                </td>
+                                <td>Rp. <?= number_format($value['price'], 0)  ?></td>
+                                <td>Rp. <?= number_format($value['price'] * $value["qty"])  ?></td>
+                                <td><a href="<?= base_url('pelanggan/chome/delete/' . $value['rowid']) ?>">Hapus</a></td>
                             </tr>
                         <?php
+                            $i++;
                         }
                         ?>
                     </tbody>
+                </table>
+                <?php echo form_close(); ?>
+            </div>
+            <div class="col-lg-3">
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Cart</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>
+                            <h5>Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></h5>
+                        </td>
+                    </tr>
 
                 </table>
+                <a href="<?= base_url('pelanggan/chome/checkout') ?>" class="btn btn-warning">Checkout</a>
             </div>
         </div>
 

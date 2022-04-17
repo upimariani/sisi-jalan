@@ -39,6 +39,24 @@ class cHome extends CI_Controller
         $this->cart->insert($data);
         redirect('pelanggan/chome');
     }
+    public function update_cart()
+    {
+        $i = 1;
+        foreach ($this->cart->contents() as $items) {
+            $data = array(
+                'rowid'  => $items['rowid'],
+                'qty'    => $this->input->post($i . '[qty]')
+            );
+            $this->cart->update($data);
+            $i++;
+        }
+        redirect('pelanggan/chome/view_cart');
+    }
+    public function delete($rowid)
+    {
+        $this->cart->remove($rowid);
+        redirect('pelanggan/chome/view_cart');
+    }
     public function view_cart()
     {
         $this->load->view('Pelanggan/layouts/header');
@@ -48,10 +66,22 @@ class cHome extends CI_Controller
     }
     public function checkout()
     {
-        $this->load->view('Pelanggan/layouts/header');
-        $this->load->view('Pelanggan/layouts/aside');
-        $this->load->view('Pelanggan/checkout');
-        $this->load->view('Pelanggan/Layouts/footer');
+        $this->form_validation->set_rules('pembayaran', 'Metode Pembayaran', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Pelanggan/layouts/header');
+            $this->load->view('Pelanggan/layouts/aside');
+            $this->load->view('Pelanggan/checkout');
+            $this->load->view('Pelanggan/Layouts/footer');
+        } else {
+            $data = array(
+                'tgl_transaksi' => date('Y-m-d'),
+                'total_bayar' => $this->cart->total(),
+                'status_order' => '0',
+                'pembayaran' => $this->input->post('pembayaran'),
+                'bukti_pembayaran' => '0'
+            );
+        }
     }
 }
 

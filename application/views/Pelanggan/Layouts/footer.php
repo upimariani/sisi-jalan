@@ -220,7 +220,13 @@
 <script type="text/javascript" src="<?= base_url('asset/pato-master/') ?>vendor/lightbox2/js/lightbox.min.js"></script>
 <!--===============================================================================================-->
 <script src="<?= base_url('asset/pato-master/') ?>js/main.js"></script>
-
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 3000)
+</script>
 </body>
 
 </html>

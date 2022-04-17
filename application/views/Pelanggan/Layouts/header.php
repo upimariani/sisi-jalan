@@ -61,7 +61,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="reservation.html">Pesanan Saya</a>
+                                    <a href="reservation.html">Pesanan Saya <?= $this->session->userdata('id') ?></a>
                                 </li>
 
                                 <li>
@@ -78,6 +78,12 @@
                                 </li>
                                 <li>
                                     <a href="about.html">Profil</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('pelanggan/clogin') ?>">Login</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('pelanggan/clogin/Logout') ?>">Logout</a>
                                 </li>
                             </ul>
                         </nav>
