@@ -140,7 +140,11 @@
                                         </h4>
                                     </a>
                                     <br>
-                                    <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4">Add To Cart</button>
+                                    <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4" <?php
+                                                                                                        if ($value->stok == '0') {
+                                                                                                            echo 'disabled';
+                                                                                                        }
+                                                                                                        ?>>Add To Cart</button>
                                     <a href="<?= base_url('pelanggan/chome/detail_produk') ?>" class="txt4">
                                         Learn More
                                         <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>

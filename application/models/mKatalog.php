@@ -9,6 +9,26 @@ class mKatalog extends CI_Model
         $this->db->from('produk');
         return $this->db->get()->result();
     }
+    public function data_pelanggan()
+    {
+        $this->db->select('*');
+        $this->db->from('pelanggan');
+        $this->db->where('id_pelanggan', $this->session->userdata('id'));
+        return $this->db->get()->row();
+    }
+    public function checkout($data)
+    {
+        $this->db->insert('transaksi', $data);
+    }
+    public function detail_transaksi($data)
+    {
+        $this->db->insert('detail_transaksi', $data);
+    }
+    public function stok($id, $data)
+    {
+        $this->db->where('id_produk', $id);
+        $this->db->update('produk', $data);
+    }
 }
 
 /* End of file mKatalog.php */

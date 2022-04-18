@@ -12,8 +12,8 @@ class protect
     public function protect()
     {
         if ($this->ci->session->userdata('id') == '') {
-            $this->ci->session->set_flashdata('error', 'Anda Belum login');
-            redirect('pelanggan/auth');
+            $this->ci->session->set_flashdata('error', 'Anda Belum Melakukan Login!');
+            redirect('pelanggan/clogin');
         }
     }
     public function protect_admin()

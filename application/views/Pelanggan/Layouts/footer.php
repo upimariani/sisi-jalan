@@ -227,6 +227,48 @@
         });
     }, 3000)
 </script>
+<script>
+    console.log = function() {}
+    $("#pembayaran").on('change', function() {
+        $(".diskon").html($(this).find(':selected').attr('data-diskon'));
+        $(".diskon").val($(this).find(':selected').attr('data-diskon'));
+
+
+        $(".total").html($(this).find(':selected').attr('data-total'));
+        $(".total").val($(this).find(':selected').attr('data-total'));
+
+
+        $(".pembayaran").html($(this).find(':selected').attr('data-pembayaran'));
+        $(".pembayaran").val($(this).find(':selected').attr('data-pembayaran'));
+    });
+</script>
+<script>
+    $("#hide").click(function() {
+        $(".detail_pesanan").slideUp("slow");
+    });
+    $("#btn_detail").click(function() {
+        console.log($(this).attr("data-id"));
+        $.ajax({
+            url: '<?= base_url() ?>pelanggan/cPesananSaya/detail_order/' + $(this).attr("data-id"),
+            dataType: 'json',
+            type: 'get',
+            contentType: 'application/x-www-form-urlencoded',
+            data: $(this).serialize(),
+            success: function(data, textStatus, jQxhr) {
+                $('#detail').html("");
+                console.log(data.produk.length);
+                for (var i = 0; i < data.produk.length; i++) {
+                    console.log(data.produk.length);
+                    $('#detail').append("<tr><td>" + data.produk[i].nama_produk + "</td><td>(" + data.produk[i].qty + ")x</td><td>Rp. " + data.produk[i].harga + "</td></tr>");
+                }
+                $('.detail_pesanan').slideDown('slow');
+            },
+            error: function(jqXhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

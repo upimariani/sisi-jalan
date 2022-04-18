@@ -57,11 +57,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="<?= base_url('pelanggan/chome/menu') ?>">Menu</a>
-                                </li>
-
-                                <li>
-                                    <a href="reservation.html">Pesanan Saya <?= $this->session->userdata('id') ?></a>
+                                    <a href="<?= base_url('pelanggan/cpesanansaya') ?>">Pesanan Saya</a>
                                 </li>
 
                                 <li>
@@ -72,19 +68,42 @@
                                 foreach ($this->cart->contents() as $key => $value) {
                                     $cart += $value['qty'];
                                 }
+                                if ($cart == '0') {
                                 ?>
-                                <li>
-                                    <a href="<?= base_url('pelanggan/chome/view_cart') ?>" class="txt19">Cart<span class="badge badge-success"><?= $cart ?></span></a>
-                                </li>
+                                    <li>
+                                        <a href="<?= base_url('pelanggan/chome/view_cart') ?>" class="txt19">Cart</a>
+                                    </li>
+                                <?php
+                                } else {
+                                ?>
+                                    <li>
+                                        <a href="<?= base_url('pelanggan/chome/view_cart') ?>" class="txt19">Cart<span class="badge badge-success"><?= $cart ?></span></a>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+
+
                                 <li>
                                     <a href="about.html">Profil</a>
                                 </li>
-                                <li>
-                                    <a href="<?= base_url('pelanggan/clogin') ?>">Login</a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('pelanggan/clogin/Logout') ?>">Logout</a>
-                                </li>
+                                <?php
+                                if ($this->session->userdata('id') == '') {
+                                ?>
+                                    <li>
+                                        <a href="<?= base_url('pelanggan/clogin') ?>">Login</a>
+                                    </li>
+                                <?php
+                                } else {
+                                ?>
+                                    <li>
+                                        <a href="<?= base_url('pelanggan/clogin/Logout') ?>">Logout</a>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+
+
                             </ul>
                         </nav>
                     </div>
