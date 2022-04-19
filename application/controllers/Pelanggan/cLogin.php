@@ -28,7 +28,9 @@ class cLogin extends CI_Controller
             $data = $this->mLogin_pelanggan->login($username, $password);
             if ($data) {
                 $id = $data->id_pelanggan;
+                $member = $data->member;
                 $this->session->set_userdata('id', $id);
+                $this->session->set_userdata('member', $member);
                 redirect('pelanggan/chome');
             } else {
                 $this->session->set_flashdata('error', 'Username dan Password Salah!');
@@ -40,6 +42,7 @@ class cLogin extends CI_Controller
     {
 
         $this->session->unset_userdata('id');
+        $this->session->unset_userdata('member');
         $this->session->set_flashdata('success', 'Anda Berhasil LogOut!');
         redirect('pelanggan/clogin');
     }

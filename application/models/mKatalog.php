@@ -7,6 +7,7 @@ class mKatalog extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('produk');
+        $this->db->join('diskon', 'produk.id_produk = diskon.id_produk', 'left');
         return $this->db->get()->result();
     }
     public function data_pelanggan()

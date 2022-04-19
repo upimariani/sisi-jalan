@@ -85,7 +85,7 @@
 
 
                                 <li>
-                                    <a href="about.html">Profil</a>
+                                    <a href="<?= base_url('pelanggan/cprofil') ?>">Profil</a>
                                 </li>
                                 <?php
                                 if ($this->session->userdata('id') == '') {

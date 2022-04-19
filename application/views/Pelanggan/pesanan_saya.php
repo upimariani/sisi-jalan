@@ -18,6 +18,11 @@
                     <h3 class="tit3 t-center m-b-35 m-t-2">
                         Pesanan Saya
                     </h3>
+                    <?php if ($this->session->userdata('success')) {
+                        echo '<div class="alert alert-success" role="alert">';
+                        echo $this->session->userdata('success');
+                        echo '</div>';
+                    } ?>
                 </div>
             </div>
             <div class="col-lg-9 p-b-30">

@@ -8,11 +8,13 @@ class cHome extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mKatalog');
+        $this->load->model('mChatting');
     }
     public function index()
     {
         $data = array(
-            'menu' => $this->mKatalog->menu()
+            'menu' => $this->mKatalog->menu(),
+            'kritik' => $this->mChatting->select_kritik()
         );
         $this->load->view('Pelanggan/layouts/header');
         $this->load->view('Pelanggan/layouts/aside');
@@ -115,7 +117,7 @@ class cHome extends CI_Controller
             }
             $this->cart->destroy();
             $this->session->set_flashdata('success', 'Pesanan Anda Berhasil Dikirim!');
-            redirect('pelanggan/chome');
+            redirect('pelanggan/cpesanansaya');
         }
     }
 }

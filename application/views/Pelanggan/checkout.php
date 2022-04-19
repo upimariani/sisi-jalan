@@ -67,6 +67,7 @@
                                     <option data-pembayaran="<?= $this->cart->total() - (0.05 * $this->cart->total()) ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total() - (0.05 * $this->cart->total())); ?>" data-diskon="5%" value="2">Transfer Bank Cimb Niaga</option>
                                     <option data-pembayaran="<?= $this->cart->total() ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total()); ?>" data-diskon="-" value="3">Transfer Bank BRI</option>
                                 </select>
+                                <?= form_error('pembayaran', '<small class="form-text text-danger">', '</small>'); ?>
                             </div>
                         </div>
                     </div>

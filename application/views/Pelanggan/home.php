@@ -123,7 +123,18 @@
                         <form action="<?= base_url('pelanggan/chome/cart') ?>" method="POST">
                             <input type="hidden" name="id" value="<?= $value->id_produk ?>">
                             <input type="hidden" name="name" value="<?= $value->nama_produk ?>">
-                            <input type="hidden" name="price" value="<?= $value->harga ?>">
+
+                            <?php
+                            if ($this->session->userdata('member') == '' || $this->session->userdata('member') == '0') {
+                            ?>
+                                <input type="hidden" name="price" value="<?= $value->harga ?>">
+                            <?php
+                            } else if ($this->session->userdata('member') == '1') {
+                            ?>
+                                <input type="hidden" name="price" value="<?= $value->harga - ($value->besar / 100 * $value->harga) ?>">
+                            <?php
+                            }
+                            ?>
                             <input type="hidden" name="qty" value="1">
                             <input type="hidden" name="stok" value="<?= $value->stok ?>">
                             <input type="hidden" name="picture" value="<?= $value->foto ?>">
@@ -134,21 +145,41 @@
                                 </div>
 
                                 <div class="wrap-text-blo1 p-t-35">
-                                    <a href="#">
-                                        <h4 class="txt5 color0-hov trans-0-4 m-b-10">
-                                            <?= $value->nama_produk ?>
-                                        </h4>
-                                    </a>
+
+                                    <h4 class="txt5 color0-hov trans-0-4 m-b-10">
+                                        <?= $value->nama_produk ?>
+                                    </h4>
+                                    <p><?= $value->deskripsi ?></p><br>
+
+                                    <?php
+                                    if ($this->session->userdata('member') == '' || $this->session->userdata('member') == '0') {
+                                    ?>
+                                        <h5>Rp. <?= number_format($value->harga, 0)  ?>
+
+
+                                        </h5>
+                                    <?php
+                                    } else if ($this->session->userdata('member') == '1') {
+                                    ?>
+                                        <h5>Rp. <?= number_format($value->harga - ($value->besar / 100 * $value->harga), 0)  ?>
+
+                                            <?php
+                                            if ($value->besar != '0') {
+                                                echo '<small><del> Rp. ' . number_format($value->harga, 0) . '</del></small>';
+                                            }
+                                            ?>
+                                        </h5>
+                                    <?php } ?>
+
+
+
                                     <br>
                                     <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4" <?php
                                                                                                         if ($value->stok == '0') {
                                                                                                             echo 'disabled';
                                                                                                         }
                                                                                                         ?>>Add To Cart</button>
-                                    <a href="<?= base_url('pelanggan/chome/detail_produk') ?>" class="txt4">
-                                        Learn More
-                                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                    </a>
+
                                 </div>
                             </div>
                         </form>
@@ -162,103 +193,6 @@
     </div>
 </section>
 
-<!-- Our menu -->
-<section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
-    <div class="container">
-        <div class="title-section-ourmenu t-center m-b-22">
-            <span class="tit2 t-center">
-                Discover
-            </span>
-
-            <h3 class="tit5 t-center m-t-2">
-                Our Menu
-            </h3>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-01.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
-                                Lunch
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-05.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size5">
-                                Dinner
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-13.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size6">
-                                Happy Hour
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-08.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
-                                Drink
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-10.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
-                                Starters
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <!-- Item our menu -->
-                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-                            <img src="images/our-menu-16.jpg" alt="IMG-MENU">
-
-                            <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size9">
-                                Dessert
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
 
 
 
@@ -271,96 +205,47 @@
         </span>
 
         <h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
-            Review
+            Kritik dan Saran
         </h3>
     </div>
 
     <!-- - -->
     <div class="wrap-slick3">
         <div class="slick3">
-            <div class="item-slick3 item1-slick3">
-                <div class="wrap-content-slide3 p-b-50 p-t-50">
-                    <div class="container">
-                        <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-                            <img src="images/avatar-01.jpg" alt="IGM-AVATAR">
-                        </div>
 
-                        <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                            <p class="t-center txt12 size15 m-l-r-auto">
-                                “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
-                            </p>
+            <?php
+            foreach ($kritik as $key => $value) {
+            ?>
+                <div class="item-slick3 item1-slick3">
+                    <div class="wrap-content-slide3 p-b-50 p-t-50">
+                        <div class="container">
 
-                            <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+
+                            <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
+                                <p class="t-center txt12 size15 m-l-r-auto">
+                                    <?= $value->kritik_saran ?>
+                                </p>
+
+                                <div class="star-review fs-18 color0 flex-c-m m-t-12">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
+                                </div>
+
+                                <div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
+                                    <?= $value->nama_pelanggan ?> ˗ <?= $value->alamat ?>
+                                </div>
                             </div>
 
-                            <div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-                                Marie Simmons ˗ New York
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick3 item2-slick3">
-                <div class="wrap-content-slide3 p-b-50 p-t-50">
-                    <div class="container">
-                        <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-                            <img src="images/avatar-04.jpg" alt="IGM-AVATAR">
-                        </div>
-
-                        <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                            <p class="t-center txt12 size15 m-l-r-auto">
-                                “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
-                            </p>
-
-                            <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-                                Marie Simmons ˗ New York
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
 
-            <div class="item-slick3 item3-slick3">
-                <div class="wrap-content-slide3 p-b-50 p-t-50">
-                    <div class="container">
-                        <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false" data-appear="zoomIn">
-                            <img src="images/avatar-05.jpg" alt="IGM-AVATAR">
-                        </div>
-
-                        <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                            <p class="t-center txt12 size15 m-l-r-auto">
-                                “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem, mattis in pre-tium nec, fermentum viverra dui ”
-                            </p>
-
-                            <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="more-review txt4 t-center animated visible-false m-t-32" data-appear="fadeInUp">
-                                Marie Simmons ˗ New York
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -372,13 +257,13 @@
 
 <!-- Sign up -->
 <div class="section-signup bg1-pattern p-t-85 p-b-85">
-    <form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
+    <form action="<?= base_url('pelanggan/cchatting/saran') ?>" method="POST" class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
         <span class="txt5 m-10">
-            Specials Sign up
+            Saran dan Kritik
         </span>
 
         <div class="wrap-input-signup size17 bo2 bo-rad-10 bgwhite pos-relative txt10 m-10">
-            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email-address" placeholder="Email Adrress">
+            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="kritik" placeholder="Kritik dan Saran...">
             <i class="fa fa-envelope ab-r-m m-r-18" aria-hidden="true"></i>
         </div>
 
