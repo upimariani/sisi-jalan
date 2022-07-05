@@ -43,23 +43,24 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Atas Nama</th>
-                                        <th>Alamat Pengiriman</th>
-                                        <th>Total Pembayaran</th>
-                                        <th>Actions</th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Atas Nama</th>
+                                        <th class="text-center">Waktu Order</th>
+                                        <th class="text-center">Total Pembayaran</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no = 1;
                                     foreach ($status['pesanan_masuk'] as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td><?= $value->nama_pelanggan ?></td>
+                                            <td><?= $value->time ?></td>
+                                            <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"><i class="align-middle" data-feather="align-justify"></i></a></td>
                                         </tr>
                                     <?php
                                     }
@@ -79,21 +80,24 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Atas Nama</th>
-                                        <th>Alamat Pengiriman</th>
+                                        <th>Waktu Order</th>
                                         <th>Total Pembayaran</th>
+                                        <th>Konfirmasi</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no = 1;
                                     foreach ($status['konfirmasi'] as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td><?= $value->nama_pelanggan ?></td>
+                                            <td><?= $value->time ?></td>
+                                            <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                            <td><a class="btn btn-warning" href="<?= base_url('admin/ctransaksi/konfirmasi/' . $value->id_transaksi) ?>">Konfirmasi Pembayaran</a></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"><i class="align-middle" data-feather="align-justify"></i></a></td>
                                         </tr>
                                     <?php
                                     }
@@ -113,21 +117,24 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Atas Nama</th>
-                                        <th>Alamat Pengiriman</th>
+                                        <th>Waktu Order</th>
                                         <th>Total Pembayaran</th>
+                                        <th>Kirim Pesanan</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no = 1;
                                     foreach ($status['diproses'] as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td><?= $value->nama_pelanggan ?></td>
+                                            <td><?= $value->time ?></td>
+                                            <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                            <td><a class="btn btn-success" href="<?= base_url('admin/ctransaksi/kirim/' . $value->id_transaksi) ?>">Kirim</a></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"><i class="align-middle" data-feather="align-justify"></i></a></td>
                                         </tr>
                                     <?php
                                     }
@@ -147,21 +154,22 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Atas Nama</th>
-                                        <th>Alamat Pengiriman</th>
+                                        <th>Waktu Order</th>
                                         <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no = 1;
                                     foreach ($status['dikirim'] as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td><?= $value->nama_pelanggan ?></td>
+                                            <td><?= $value->time ?></td>
+                                            <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"><i class="align-middle" data-feather="align-justify"></i></a></td>
                                         </tr>
                                     <?php
                                     }
@@ -181,21 +189,22 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Atas Nama</th>
-                                        <th>Alamat Pengiriman</th>
+                                        <th>Waktu Order</th>
                                         <th>Total Pembayaran</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no = 1;
                                     foreach ($status['selesai'] as $key => $value) {
                                     ?>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="text-center"><?= $no++ ?>.</td>
+                                            <td><?= $value->nama_pelanggan ?></td>
+                                            <td><?= $value->time ?></td>
+                                            <td>Rp. <?= number_format($value->total_bayar) ?></td>
+                                            <td class="text-center"><a href="<?= base_url('Admin/cTransaksi/detail_pesanan/' . $value->id_transaksi) ?>"><i class="align-middle" data-feather="align-justify"></i></a></td>
                                         </tr>
                                     <?php
                                     }

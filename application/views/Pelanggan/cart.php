@@ -74,7 +74,7 @@
                     </tr>
 
                 </table>
-                <a href="<?= base_url('pelanggan/chome/checkout') ?>" class="btn btn-warning">Checkout</a>
+                <a href="<?= base_url('pelanggan/chome/pengiriman') ?>" class="btn btn-warning">Checkout</a>
             </div>
         </div>
 

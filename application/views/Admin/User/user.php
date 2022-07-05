@@ -1,7 +1,7 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">User</h1>
+        <h1 class="h3 mb-3">Admin</h1>
         <?php
         if ($this->session->userdata('success')) {
         ?>
@@ -25,13 +25,13 @@
             <div class="col-6 col-xl-7">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Informasi user</h5>
+                        <h5 class="card-title">Informasi Admin</h5>
                     </div>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama User</th>
+                                <th>Nama Admin</th>
                                 <th>Alamat</th>
                                 <th>Akun</th>
                                 <th>Action</th>
@@ -44,13 +44,13 @@
                             ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
-                                    <td><?= $value->nama_user ?><br><?= $value->no_hp ?></td>
+                                    <td><?= $value->nama_admin ?><br><?= $value->no_hp ?></td>
                                     <td><?= $value->alamat ?></td>
                                     <td>Username: <?= $value->username ?><br>
                                         Password: <?= $value->password ?></td>
                                     <td class="table-action">
-                                        <button class="btn btn-success" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"><i class="align-middle" data-feather="edit-2"></i></button>
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus<?= $value->id_user ?>"><i class="align-middle" data-feather="trash"></i></button>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#edit<?= $value->id_admin ?>"><i class="align-middle" data-feather="edit-2"></i></button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus<?= $value->id_admin ?>"><i class="align-middle" data-feather="trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-label">Nama User</label>
+                                        <label class="form-label">Nama Admin</label>
                                         <input type="text" value="<?= set_value('nama') ?>" name="nama" class="form-control" placeholder="Masukkan Nama User">
                                         <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
                                     </div>
@@ -139,9 +139,9 @@
 foreach ($user as $key => $value) {
 ?>
 
-    <div class="modal fade" id="edit<?= $value->id_user ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="edit<?= $value->id_admin ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="<?= base_url('admin/cuser/update/' . $value->id_user) ?>" method="POST">
+            <form action="<?= base_url('admin/cuser/update/' . $value->id_admin) ?>" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Default modal</h5>
@@ -155,7 +155,7 @@ foreach ($user as $key => $value) {
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-label">Nama User</label>
-                                    <input type="text" value="<?= $value->nama_user ?>" name="nama" class="form-control" placeholder="Masukkan Nama User" required>
+                                    <input type="text" value="<?= $value->nama_admin ?>" name="nama" class="form-control" placeholder="Masukkan Nama User" required>
                                     <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                             </div>
@@ -180,10 +180,10 @@ foreach ($user as $key => $value) {
                                     <label class="form-label">Level User</label>
                                     <select class="form-control" name="level" required>
                                         <option value="">---Pilih Level User---</option>
-                                        <option value="1" <?php if ($value->level_user == '1') {
+                                        <option value="1" <?php if ($value->level_admin == '1') {
                                                                 echo 'selected';
                                                             } ?>>Admin</option>
-                                        <option value="2" <?php if ($value->level_user == '2') {
+                                        <option value="2" <?php if ($value->level_admin == '2') {
                                                                 echo 'selected';
                                                             } ?>>Owner</option>
                                     </select>
@@ -225,9 +225,9 @@ foreach ($user as $key => $value) {
 foreach ($user as $key => $value) {
 ?>
 
-    <div class="modal fade" id="hapus<?= $value->id_user ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="hapus<?= $value->id_admin ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="<?= base_url('admin/cuser/delete/' . $value->id_user) ?>" method="POST">
+            <form action="<?= base_url('admin/cuser/delete/' . $value->id_admin) ?>" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Default modal</h5>

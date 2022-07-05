@@ -54,7 +54,7 @@
                             ?>
                                 <div class="text-blo4 p-t-33">
                                     <p>
-                                        <a href="blog-detail.html"><strong><?= $value->nama_user ?></strong></a><br>
+                                        <a href="blog-detail.html"><strong><?= $value->nama_admin ?></strong></a><br>
                                         Time : <?= $value->time ?>
                                     </p>
                                     <p>

@@ -9,7 +9,7 @@ class mProduk extends CI_Model
     }
     public function insert_diskon($data)
     {
-        $this->db->insert('diskon', $data);
+        $this->db->insert('promo', $data);
     }
     public function select()
     {
@@ -37,7 +37,7 @@ class mProduk extends CI_Model
     public function delete_diskon($id)
     {
         $this->db->where('id_produk', $id);
-        $this->db->delete('diskon');
+        $this->db->delete('promo');
     }
 }
 

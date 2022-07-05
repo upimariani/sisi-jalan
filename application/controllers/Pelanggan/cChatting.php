@@ -28,7 +28,7 @@ class cChatting extends CI_Controller
             $this->protect->protect();
             $data = array(
                 'id_pelanggan' => $this->session->userdata('id'),
-                'id_user' => '2',
+                'id_admin' => '2',
                 'pelanggan_send' => $this->input->post('pesan'),
                 'admin_send' => '0'
             );

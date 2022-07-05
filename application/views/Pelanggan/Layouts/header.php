@@ -44,7 +44,7 @@
                     <!-- Logo -->
                     <div class="logo">
                         <a href="index.html">
-                            <img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+                            <h5 class="text-danger">Sisi Jalan Coffe</h5>
                         </a>
                     </div>
 
@@ -87,6 +87,9 @@
                                 <li>
                                     <a href="<?= base_url('pelanggan/cprofil') ?>">Profil</a>
                                 </li>
+                                <li>
+                                    <a href="<?= base_url('pelanggan/cchatting') ?>">Chatting</a>
+                                </li>
                                 <?php
                                 if ($this->session->userdata('id') == '') {
                                 ?>
@@ -108,14 +111,6 @@
                         </nav>
                     </div>
 
-                    <!-- Social -->
-                    <div class="social flex-w flex-l-m p-r-20">
-                        <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-facebook m-l-21" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter m-l-21" aria-hidden="true"></i></a>
-
-                        <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
-                    </div>
                 </div>
             </div>
         </div>

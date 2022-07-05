@@ -13,7 +13,7 @@ class mChatting extends CI_Model
         $this->db->select('*');
         $this->db->from('chatting');
         $this->db->join('pelanggan', 'chatting.id_pelanggan = pelanggan.id_pelanggan', 'left');
-        $this->db->join('user', 'chatting.id_user = user.id_user', 'left');
+        $this->db->join('admin', 'chatting.id_admin = admin.id_admin', 'left');
 
         $this->db->where('pelanggan.id_pelanggan', $this->session->userdata('id'));
         return $this->db->get()->result();

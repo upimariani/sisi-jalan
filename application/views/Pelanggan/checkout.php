@@ -17,7 +17,7 @@
                     </span>
 
                     <h3 class="tit3 t-center m-b-35 m-t-2">
-                        Checkout
+                        Checkout Take In
                     </h3>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     }
                     ?>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <!-- Name -->
                             <span class="txt9">
                                 Atas Nama
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <!-- Name -->
                             <span class="txt9">
                                 No Telepon
@@ -55,7 +55,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <!-- Name -->
                             <span class="txt9">
                                 Pilih Metode Pembayaran
@@ -63,7 +63,7 @@
                             <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                 <select id="pembayaran" name="pembayaran" class="bo-rad-10 sizefull txt10 p-l-20">
                                     <option value="">---Metode Pembayaran---</option>
-                                    <option data-pembayaran="<?= $this->cart->total() ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total()); ?>" data-diskon="-" value="1">Take In</option>
+                                    <option data-pembayaran="<?= $this->cart->total() ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total()); ?>" data-diskon="-" value="1">Cash</option>
                                     <option data-pembayaran="<?= $this->cart->total() - (0.05 * $this->cart->total()) ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total() - (0.05 * $this->cart->total())); ?>" data-diskon="5%" value="2">Transfer Bank Cimb Niaga</option>
                                     <option data-pembayaran="<?= $this->cart->total() ?>" data-total="Rp. <?= $this->cart->format_number($this->cart->total()); ?>" data-diskon="-" value="3">Transfer Bank BRI</option>
                                 </select>
@@ -140,3 +140,4 @@
         </div>
     </div>
 </section>
+<!-- Modal -->

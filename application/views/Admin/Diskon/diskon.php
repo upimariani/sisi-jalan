@@ -1,37 +1,53 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3">Tables</h1>
-
+        <h1 class="h3 mb-3">Promo Produk</h1>
+        <?php
+        if ($this->session->userdata('success')) {
+        ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>Hello there!</strong> <?= $this->session->userdata('success') ?>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
         <div class="row">
             <div class="col-6 col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Basic Table</h5>
+                        <h5 class="card-title">Informasi Promo</h5>
                         <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
                     </div>
                     <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th>Nama Produk</th>
-                                <th>Nama Diskon</th>
-                                <th>Diskon</th>
+                                <th>Nama Promo</th>
+                                <th>Promo</th>
                                 <th>Tanggal</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($diskon as $key => $value) {
+                            foreach ($promo as $key => $value) {
                             ?>
                                 <tr>
                                     <td><?= $value->nama_produk ?></td>
-                                    <td><?= $value->nama_diskon ?> </td>
+                                    <td><?= $value->nama_promo ?> </td>
                                     <td><?= $value->besar ?> %</td>
                                     <td><?= $value->tgl_selesai ?></td>
                                     <td class="table-action">
-                                        <button class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $value->id_diskon ?>"><i class="align-middle" data-feather="edit-2"></i></button>
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus<?= $value->id_diskon ?>"><i class=" align-middle" data-feather="trash"></i></button>
+                                        <button class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $value->id_promo ?>"><i class="align-middle" data-feather="edit-2"></i></button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#hapus<?= $value->id_promo ?>"><i class=" align-middle" data-feather="trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -45,7 +61,7 @@
             <div class="col-12 col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Create New Diskon</h5>
+                        <h5 class="card-title">Create New Promo Produk</h5>
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('admin/cdiskon') ?>" method="POST">
@@ -64,11 +80,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Nama Diskon</label>
+                                <label class="form-label">Nama Promo</label>
                                 <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Diskon ">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Besar Diskon</label>
+                                <label class="form-label">Besar Promo</label>
                                 <input type="number" name="besar" class="form-control" placeholder="Masukkan Besar Diskon">
                             </div>
                             <div class="form-group">
@@ -90,9 +106,9 @@
 
 
 <?php
-foreach ($diskon as $key => $items) {
+foreach ($promo as $key => $items) {
 ?>
-    <div class="modal fade" id="edit<?= $items->id_diskon ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="edit<?= $items->id_promo ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -119,11 +135,11 @@ foreach ($diskon as $key => $items) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Nama Diskon</label>
-                            <input type="text" value="<?= $items->nama_diskon ?>" name="nama" class="form-control" placeholder="Masukkan Nama Diskon ">
+                            <label class="form-label">Nama Promo</label>
+                            <input type="text" value="<?= $items->nama_promo ?>" name="nama" class="form-control" placeholder="Masukkan Nama Diskon ">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Besar Diskon</label>
+                            <label class="form-label">Besar Promo</label>
                             <input type="number" value="<?= $items->besar ?>" name="besar" class="form-control" placeholder="Masukkan Besar Diskon">
                         </div>
                         <div class="form-group">
@@ -148,9 +164,9 @@ foreach ($diskon as $key => $items) {
 ?>
 
 <?php
-foreach ($diskon as $key => $value) {
+foreach ($promo as $key => $value) {
 ?>
-    <div class="modal fade" id="hapus<?= $value->id_diskon ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="hapus<?= $value->id_promo ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="<?= base_url('admin/cdiskon/delete/' . $value->id_produk) ?>" method="POST">
                 <div class="modal-content">

@@ -14,7 +14,8 @@ class cPesananSaya extends CI_Controller
     {
         $this->protect->protect();
         $data = array(
-            'pesanan' => $this->mPesanan_Saya->pesanan()
+            'pesanan' => $this->mPesanan_Saya->pesanan(),
+            'pesanan_deliv' => $this->mPesanan_Saya->pesanan_deliv()
         );
         $this->load->view('Pelanggan/layouts/header');
         $this->load->view('Pelanggan/layouts/aside');
@@ -55,6 +56,15 @@ class cPesananSaya extends CI_Controller
             $this->session->set_flashdata('success', 'Bukti Pembayaran Berhasil Dikirim!');
             redirect('pelanggan/cpesanansaya');
         }
+    }
+    public function pesanan_selesai($id)
+    {
+        $data = array(
+            'status_order' => '4'
+        );
+        $this->db->where('id_transaksi', $id);
+        $this->db->update('transaksi', $data);
+        redirect('pelanggan/cpesanansaya');
     }
 }
 

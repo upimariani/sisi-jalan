@@ -60,7 +60,7 @@ class cProduk extends CI_Controller
                 //memasukkan data diskon
                 $diskon = array(
                     'id_produk' => $this->input->post('id'),
-                    'nama_diskon' => '0',
+                    'nama_promo' => '0',
                     'besar' => '0',
                     'tgl_mulai' => '0',
                     'tgl_selesai' => '0'

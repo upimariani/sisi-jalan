@@ -246,7 +246,7 @@
     $("#hide").click(function() {
         $(".detail_pesanan").slideUp("slow");
     });
-    $("#btn_detail").click(function() {
+    $(".btn_detail").click(function() {
         console.log($(this).attr("data-id"));
         $.ajax({
             url: '<?= base_url() ?>pelanggan/cPesananSaya/detail_order/' + $(this).attr("data-id"),
@@ -259,7 +259,7 @@
                 console.log(data.produk.length);
                 for (var i = 0; i < data.produk.length; i++) {
                     console.log(data.produk.length);
-                    $('#detail').append("<tr><td>" + data.produk[i].nama_produk + "</td><td>(" + data.produk[i].qty + ")x</td><td>Rp. " + data.produk[i].harga + "</td></tr>");
+                    $('#detail').append("<tr><td>" + data.produk[i].nama_produk + "</td><td>(" + data.produk[i].qty + ")x</td><td>Rp. " + data.produk[i].qty * (data.produk[i].harga - (data.produk[i].besar / 100 * data.produk[i].harga)) + "</td></tr>");
                 }
                 $('.detail_pesanan').slideDown('slow');
             },

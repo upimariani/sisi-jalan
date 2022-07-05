@@ -54,7 +54,7 @@
                                                 echo 'active';
                                             }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cProduk') ?>">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Produk</span>
+                            <i class="align-middle" data-feather="upload"></i> <span class="align-middle">Produk</span>
                         </a>
                     </li>
 
@@ -62,7 +62,7 @@
                                                 echo 'active';
                                             }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cDiskon') ?>">
-                            <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Diskon</span>
+                            <i class="align-middle" data-feather="tag"></i> <span class="align-middle">Diskon</span>
                         </a>
                     </li>
 
@@ -70,13 +70,20 @@
                                                 echo 'active';
                                             }  ?>">
                         <a class="sidebar-link" href="<?= base_url('Admin/cTransaksi') ?>">
-                            <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Transaksi</span>
+                            <i class="align-middle" data-feather="truck"></i> <span class="align-middle">Transaksi Delivery</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTakeIn') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a class="sidebar-link" href="<?= base_url('Admin/cTakeIn') ?>">
+                            <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Transaksi Take In</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="<?= base_url('admin/clogin/logout') ?>">
-                            <i class="align-middle" data-feather="book"></i> <span class="align-middle">LogOut</span>
+                            <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">LogOut</span>
                         </a>
                     </li>
 

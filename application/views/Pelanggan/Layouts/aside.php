@@ -20,10 +20,13 @@
         <li class="t-center m-b-13">
             <a href="about.html" class="txt19">Checkout</a>
         </li>
-       
+
 
         <li class="t-center m-b-13">
             <a href="blog.html" class="txt19">Profil</a>
+        </li>
+        <li class="t-center m-b-13">
+            <a href="blog.html" class="txt19">Chatting</a>
         </li>
 
 

@@ -6,7 +6,7 @@ class mlogin_admin extends CI_Model
     public function login($username, $password)
     {
         $this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('admin');
         $this->db->where(array(
             'username' => $username,
             'password' => $password

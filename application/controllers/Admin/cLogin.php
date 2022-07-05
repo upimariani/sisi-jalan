@@ -24,10 +24,16 @@ class cLogin extends CI_Controller
             $data = $this->mLogin_admin->login($username, $password);
 
             if ($data) {
-                $id = $data->id_user;
+                $id = $data->id_admin;
                 $this->session->set_userdata('id', $id);
-                $this->session->set_flashdata('success', 'Selamat Datang Admin!');
-                redirect('Admin/cDashboard');
+
+                if ($data->level_admin == '1') {
+                    $this->session->set_flashdata('success', 'Selamat Datang Admin!');
+                    redirect('Admin/cDashboard');
+                } else if ($data->level_admin == '2') {
+                    $this->session->set_flashdata('success', 'Selamat Datang Pemilik!');
+                    redirect('Pemilik/cDashboard');
+                }
             } else {
                 $this->session->set_flashdata('error', 'Username dan Password Salah!');
                 redirect('admin/clogin');

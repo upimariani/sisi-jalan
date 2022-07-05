@@ -31,12 +31,12 @@ class cUser extends CI_Controller
             $this->load->view('Admin/Layouts/footer');
         } else {
             $data = array(
-                'nama_user' => $this->input->post('nama'),
+                'nama_admin' => $this->input->post('nama'),
                 'alamat' => $this->input->post('alamat'),
                 'no_hp' => $this->input->post('no_hp'),
                 'username' => $this->input->post('username'),
                 'password' => $this->input->post('password'),
-                'level_user' => $this->input->post('level')
+                'level_admin' => $this->input->post('level')
             );
             $this->mUser->insert($data);
             $this->session->set_flashdata('success', 'Data User Berhasil Ditambahkan!');
@@ -46,12 +46,12 @@ class cUser extends CI_Controller
     public function update($id)
     {
         $data = array(
-            'nama_user' => $this->input->post('nama'),
+            'nama_admin' => $this->input->post('nama'),
             'alamat' => $this->input->post('alamat'),
             'no_hp' => $this->input->post('no_hp'),
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
-            'level_user' => $this->input->post('level')
+            'level_admin' => $this->input->post('level')
         );
         $this->mUser->update($id, $data);
         $this->session->set_flashdata('success', 'Data User Berhasil Diperbaharui!');

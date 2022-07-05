@@ -23,7 +23,7 @@ class cDiskon extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'produk' => $this->mProduk->select(),
-                'diskon' => $this->mDiskon->select()
+                'promo' => $this->mDiskon->select()
             );
             $this->load->view('Admin/Layouts/head');
             $this->load->view('Admin/diskon/diskon', $data);
@@ -31,7 +31,7 @@ class cDiskon extends CI_Controller
         } else {
             $id = $this->input->post('produk');
             $data = array(
-                'nama_diskon' => $this->input->post('nama'),
+                'nama_promo' => $this->input->post('nama'),
                 'besar' => $this->input->post('besar'),
                 'tgl_mulai' => $this->input->post('tgl_mulai'),
                 'tgl_selesai' => $this->input->post('tgl_selesai')
@@ -44,7 +44,7 @@ class cDiskon extends CI_Controller
     public function update($id)
     {
         $data = array(
-            'nama_diskon' => $this->input->post('nama'),
+            'nama_promo' => $this->input->post('nama'),
             'besar' => $this->input->post('besar'),
             'tgl_selesai' => $this->input->post('tgl_selesai')
         );

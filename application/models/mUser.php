@@ -6,30 +6,30 @@ class mUser extends CI_Model
 {
     public function insert($data)
     {
-        $this->db->insert('user', $data);
+        $this->db->insert('admin', $data);
     }
     public function select()
     {
         $this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('admin');
         return $this->db->get()->result();
     }
     public function edit($id)
     {
         $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('id_user', $id);
+        $this->db->from('admin');
+        $this->db->where('id_admin', $id);
         return $this->db->get()->row();
     }
     public function update($id, $data)
     {
-        $this->db->where('id_user', $id);
-        $this->db->update('user', $data);
+        $this->db->where('id_admin', $id);
+        $this->db->update('admin', $data);
     }
     public function delete($id)
     {
-        $this->db->where('id_user', $id);
-        $this->db->delete('user');
+        $this->db->where('id_admin', $id);
+        $this->db->delete('admin');
     }
 }
 

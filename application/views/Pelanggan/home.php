@@ -13,15 +13,12 @@
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
-                        </a>
+
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item2-slick1" style="background-image: url(<?= base_url('asset/pato-master/') ?>images/master-slides-02.jpg);">
+            <div class="item-slick1 item2-slick1" style="background-image: url(<?= base_url('asset/pato-master/') ?>images/IMG2.jpg);">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                     <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
                         Welcome to
@@ -32,10 +29,7 @@
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -51,10 +45,7 @@
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -72,7 +63,7 @@
             <div class="col-md-6 p-t-45 p-b-30">
                 <div class="wrap-text-welcome t-center">
                     <span class="tit2 t-center">
-                        Italian Restaurant
+                        Cafe Coffe
                     </span>
 
                     <h3 class="tit3 t-center m-b-35 m-t-5">
@@ -92,7 +83,7 @@
 
             <div class="col-md-6 p-b-30">
                 <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-                    <img src="images/our-story-01.jpg" alt="IMG-OUR">
+                    <img src="<?= base_url('asset/pato-master/') ?>images/our-story-01.jpg" alt="IMG-OUR">
                 </div>
             </div>
         </div>
@@ -107,7 +98,7 @@
         </span>
 
         <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
-            Pato Place
+            Sisi Jalan Coffe Place
         </h3>
     </div>
 
@@ -125,7 +116,7 @@
                             <input type="hidden" name="name" value="<?= $value->nama_produk ?>">
 
                             <?php
-                            if ($this->session->userdata('member') == '' || $this->session->userdata('member') == '0') {
+                            if ($this->session->userdata('member') == '0') {
                             ?>
                                 <input type="hidden" name="price" value="<?= $value->harga ?>">
                             <?php
@@ -141,7 +132,7 @@
                             <!-- Block1 -->
                             <div class="blo1">
                                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                                    <a href="#"><img src="<?= base_url('asset/foto-produk/' . $value->foto) ?>" alt="IMG-INTRO"></a>
+                                    <a href="#"><img style="width: 350px; height: 350px;" src="<?= base_url('asset/foto-produk/' . $value->foto) ?>" alt="IMG-INTRO"></a>
                                 </div>
 
                                 <div class="wrap-text-blo1 p-t-35">
@@ -152,14 +143,8 @@
                                     <p><?= $value->deskripsi ?></p><br>
 
                                     <?php
-                                    if ($this->session->userdata('member') == '' || $this->session->userdata('member') == '0') {
-                                    ?>
-                                        <h5>Rp. <?= number_format($value->harga, 0)  ?>
 
-
-                                        </h5>
-                                    <?php
-                                    } else if ($this->session->userdata('member') == '1') {
+                                    if ($this->session->userdata('member') == '1') {
                                     ?>
                                         <h5>Rp. <?= number_format($value->harga - ($value->besar / 100 * $value->harga), 0)  ?>
 
@@ -169,7 +154,11 @@
                                             }
                                             ?>
                                         </h5>
-                                    <?php } ?>
+                                    <?php } else {
+                                    ?>
+                                        <h5>Rp. <?= number_format($value->harga, 0)  ?></h5>
+                                    <?php
+                                    } ?>
 
 
 
