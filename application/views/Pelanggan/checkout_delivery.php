@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-8 p-b-30">
                 <form action="<?= base_url('pelanggan/chome/checkout_deliv') ?>" method="POST" class="wrap-form-reservation size22 m-l-r-auto">
-                    <input type="text" name="total" class="pembayaran">
+                    <input type="hidden" name="total" class="pembayaran">
                     <?php $id_transaksi = date('Ymd') . strtoupper(random_string('alnum', 8));
                     ?>
                     <input type="hidden" name="id_transaksi" value="<?= $id_transaksi ?>">
