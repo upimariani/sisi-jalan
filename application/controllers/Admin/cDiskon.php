@@ -55,7 +55,7 @@ class cDiskon extends CI_Controller
     public function delete($id)
     {
         $data = array(
-            'nama_diskon' => '0',
+            'nama_promo' => '0',
             'besar' => '0',
             'tgl_mulai' => '0',
             'tgl_selesai' => '0'

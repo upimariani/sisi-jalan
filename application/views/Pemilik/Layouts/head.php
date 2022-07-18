@@ -49,6 +49,13 @@
                             <i class="align-middle" data-feather="shopping-cart"></i> <span class="align-middle">Laporan Transaksi</span>
                         </a>
                     </li>
+                    <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cLaporan_Promo') {
+                                                echo 'active';
+                                            }  ?>">
+                        <a class="sidebar-link" href="<?= base_url('Pemilik/cLaporan_Promo') ?>">
+                            <i class="align-middle" data-feather="tag"></i> <span class="align-middle">Laporan Promo</span>
+                        </a>
+                    </li>
 
                     <li class="sidebar-item <?php if ($this->uri->segment(1) == 'Pemilik' && $this->uri->segment(2) == 'cLaporan_Produk') {
                                                 echo 'active';

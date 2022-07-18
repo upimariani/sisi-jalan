@@ -115,6 +115,48 @@ class mLaporan extends CI_Model
         $this->db->where('member', $member);
         return $this->db->get()->result();
     }
+
+
+    public function lap_harian_promo($tanggal, $bulan, $tahun)
+    {
+        $this->db->select('*');
+        $this->db->from('promo');
+        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+
+        $this->db->where('DAY(tgl_mulai)', $tanggal);
+        $this->db->where('MONTH(tgl_mulai)', $bulan);
+        $this->db->where('YEAR(tgl_mulai)', $tahun);
+        return $this->db->get()->result();
+    }
+    public function lap_bulanan_promo($bulan, $tahun)
+    {
+        $this->db->select('*');
+        $this->db->from('promo');
+        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+
+        $this->db->where('MONTH(tgl_mulai)', $bulan);
+        $this->db->where('YEAR(tgl_mulai)', $tahun);
+        return $this->db->get()->result();
+    }
+    public function lap_tahunan_promo($tahun)
+    {
+        $this->db->select('*');
+        $this->db->from('promo');
+        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+
+        $this->db->where('YEAR(tgl_mulai)', $tahun);
+        return $this->db->get()->result();
+    }
+
+    public function grafik_promo()
+    {
+        $this->db->select('*');
+        $this->db->from('promo');
+        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+        $this->db->where('besar!=0');
+        $this->db->order_by('besar', 'asc');
+        return $this->db->get()->result();
+    }
 }
 
 /* End of file mLaporan.php */

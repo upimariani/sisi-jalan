@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2022 at 11:57 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.22
+-- Waktu pembuatan: 18 Jul 2022 pada 12.08
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `alamat`, `no_hp`, `username`, `password`, `level_admin`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `admin` (`id_admin`, `nama_admin`, `alamat`, `no_hp`, `username`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chatting`
+-- Struktur dari tabel `chatting`
 --
 
 CREATE TABLE `chatting` (
@@ -61,7 +61,7 @@ CREATE TABLE `chatting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `chatting`
+-- Dumping data untuk tabel `chatting`
 --
 
 INSERT INTO `chatting` (`id_chatting`, `id_pelanggan`, `id_admin`, `pelanggan_send`, `admin_send`, `time`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `chatting` (`id_chatting`, `id_pelanggan`, `id_admin`, `pelanggan_se
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_transaksi`
+-- Struktur dari tabel `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -85,7 +85,7 @@ CREATE TABLE `detail_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_transaksi`
+-- Dumping data untuk tabel `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail`, `id_produk`, `id_transaksi`, `qty`) VALUES
@@ -122,7 +122,7 @@ INSERT INTO `detail_transaksi` (`id_detail`, `id_produk`, `id_transaksi`, `qty`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kritik_saran`
+-- Struktur dari tabel `kritik_saran`
 --
 
 CREATE TABLE `kritik_saran` (
@@ -133,7 +133,7 @@ CREATE TABLE `kritik_saran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kritik_saran`
+-- Dumping data untuk tabel `kritik_saran`
 --
 
 INSERT INTO `kritik_saran` (`id_kritik`, `id_pelanggan`, `kritik_saran`, `time`) VALUES
@@ -144,7 +144,7 @@ INSERT INTO `kritik_saran` (`id_kritik`, `id_pelanggan`, `kritik_saran`, `time`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -160,7 +160,7 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `jenis_kelamin`, `alamat`, `no_hp`, `username`, `password`, `member`, `create_member`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `jenis_kelamin`, `ala
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengiriman`
+-- Struktur dari tabel `pengiriman`
 --
 
 CREATE TABLE `pengiriman` (
@@ -185,7 +185,7 @@ CREATE TABLE `pengiriman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengiriman`
+-- Dumping data untuk tabel `pengiriman`
 --
 
 INSERT INTO `pengiriman` (`id_pengiriman`, `id_transaksi`, `alamat`, `rt`, `rw`, `kota`, `ongkir`) VALUES
@@ -197,7 +197,7 @@ INSERT INTO `pengiriman` (`id_pengiriman`, `id_transaksi`, `alamat`, `rt`, `rw`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -211,7 +211,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `stok`, `deskripsi`, `foto`, `tipe_produk`) VALUES
@@ -223,7 +223,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `stok`, `deskripsi`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promo`
+-- Struktur dari tabel `promo`
 --
 
 CREATE TABLE `promo` (
@@ -236,19 +236,19 @@ CREATE TABLE `promo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `promo`
+-- Dumping data untuk tabel `promo`
 --
 
 INSERT INTO `promo` (`id_promo`, `id_produk`, `nama_promo`, `besar`, `tgl_mulai`, `tgl_selesai`) VALUES
-(2, 'KMIL', 'Every Day', '15', 'Fri-Apr-2022', '04/28/2022'),
-(4, 'GH2K', 'Sale Of Sale', '20', 'Wed-Jun-2022', '18-06-2022'),
-(5, 'NVYR', '0', '0', '0', '0'),
-(6, 'JWKS', 'Sale Day', '5', 'Mon-Jul-2022', '31-08-2022');
+(2, 'KMIL', '0', '0', '0', '0'),
+(4, 'GH2K', 'Day Sale', '15', '2022-07-18', '23-09-2022'),
+(5, 'NVYR', 'Day Sale', '15', '2022-07-18', '03-09-2022'),
+(6, 'JWKS', 'Every Day', '5', '2022-07-18', '22-10-2022');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -264,7 +264,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total_bayar`, `status_order`, `time`, `pembayaran`, `bukti_pembayaran`, `status_pesan`) VALUES
@@ -288,101 +288,101 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tgl_transaksi`, `total
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `chatting`
+-- Indeks untuk tabel `chatting`
 --
 ALTER TABLE `chatting`
   ADD PRIMARY KEY (`id_chatting`);
 
 --
--- Indexes for table `detail_transaksi`
+-- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `kritik_saran`
+-- Indeks untuk tabel `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
   ADD PRIMARY KEY (`id_kritik`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `pengiriman`
+-- Indeks untuk tabel `pengiriman`
 --
 ALTER TABLE `pengiriman`
   ADD PRIMARY KEY (`id_pengiriman`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `promo`
+-- Indeks untuk tabel `promo`
 --
 ALTER TABLE `promo`
   ADD PRIMARY KEY (`id_promo`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `chatting`
+-- AUTO_INCREMENT untuk tabel `chatting`
 --
 ALTER TABLE `chatting`
   MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `kritik_saran`
+-- AUTO_INCREMENT untuk tabel `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
   MODIFY `id_kritik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pengiriman`
+-- AUTO_INCREMENT untuk tabel `pengiriman`
 --
 ALTER TABLE `pengiriman`
   MODIFY `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `promo`
+-- AUTO_INCREMENT untuk tabel `promo`
 --
 ALTER TABLE `promo`
   MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

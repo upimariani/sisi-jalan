@@ -89,7 +89,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Tanggal Mulai</label>
-                                <input type="text" value="<?= date('D-M-Y') ?>" name="tgl_mulai" class="form-control">
+                                <input type="text" value="<?= date('Y-m-d') ?>" name="tgl_mulai" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Tanggal Selesai</label>
