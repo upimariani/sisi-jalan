@@ -120,41 +120,52 @@ class mLaporan extends CI_Model
     public function lap_harian_promo($tanggal, $bulan, $tahun)
     {
         $this->db->select('*');
-        $this->db->from('promo');
-        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+        $this->db->from('transaksi');
+        $this->db->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi', 'left');
+        $this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk', 'left');
+        $this->db->where('tipe_produk=2');
 
-        $this->db->where('DAY(tgl_mulai)', $tanggal);
-        $this->db->where('MONTH(tgl_mulai)', $bulan);
-        $this->db->where('YEAR(tgl_mulai)', $tahun);
+
+        $this->db->where('DAY(tgl_transaksi)', $tanggal);
+        $this->db->where('MONTH(tgl_transaksi)', $bulan);
+        $this->db->where('YEAR(tgl_transaksi)', $tahun);
         return $this->db->get()->result();
     }
     public function lap_bulanan_promo($bulan, $tahun)
     {
         $this->db->select('*');
-        $this->db->from('promo');
-        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+        $this->db->from('transaksi');
+        $this->db->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi', 'left');
+        $this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk', 'left');
+        $this->db->where('tipe_produk=2');
 
-        $this->db->where('MONTH(tgl_mulai)', $bulan);
-        $this->db->where('YEAR(tgl_mulai)', $tahun);
+        $this->db->where('MONTH(tgl_transaksi)', $bulan);
+        $this->db->where('YEAR(tgl_transaksi)', $tahun);
         return $this->db->get()->result();
     }
     public function lap_tahunan_promo($tahun)
     {
         $this->db->select('*');
-        $this->db->from('promo');
-        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
+        $this->db->from('transaksi');
+        $this->db->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi', 'left');
+        $this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk', 'left');
+        $this->db->where('tipe_produk=2');
 
-        $this->db->where('YEAR(tgl_mulai)', $tahun);
+        $this->db->where('YEAR(tgl_transaksi)', $tahun);
         return $this->db->get()->result();
     }
 
     public function grafik_promo()
     {
-        $this->db->select('*');
-        $this->db->from('promo');
-        $this->db->join('produk', 'promo.id_produk = produk.id_produk', 'left');
-        $this->db->where('besar!=0');
-        $this->db->order_by('besar', 'asc');
+        $this->db->select('SUM(qty) as jml, nama_produk');
+        $this->db->from('transaksi');
+        $this->db->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi', 'left');
+        $this->db->join('produk', 'detail_transaksi.id_produk = produk.id_produk', 'left');
+        $this->db->group_by('detail_transaksi.id_produk');
+        $this->db->where('tipe_produk =2');
+        $this->db->order_by('jml', 'desc');
+
+
         return $this->db->get()->result();
     }
 }

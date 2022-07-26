@@ -22,8 +22,8 @@
                                 <tr>
                                     <th>Id Produk</th>
                                     <th>Nama Promo</th>
-                                    <th>Besar Promo</th>
-                                    <th>Tanggal Mulai</th>
+                                    <th>Qty</th>
+                                    <th>Tanggal Transaksi</th>
                                     <th>Harga</th>
                                 </tr>
                             </thead>
@@ -35,10 +35,10 @@
 
                                     <tr>
                                         <td><?= $value->id_produk ?></td>
-                                        <td><?= $value->nama_promo ?></td>
-                                        <td><?= $value->besar ?> %</td>
-                                        <td><?= $value->tgl_mulai ?></td>
-                                        <td>Rp. <?= number_format($value->harga - ($value->besar / 100 * $value->harga)) ?></td>
+                                        <td><?= $value->nama_produk ?></td>
+                                        <td><?= $value->qty ?> </td>
+                                        <td><?= $value->tgl_transaksi ?> </td>
+                                        <td>Rp. <?= number_format($value->harga) ?> </td>
                                     </tr>
                                 <?php
                                 }

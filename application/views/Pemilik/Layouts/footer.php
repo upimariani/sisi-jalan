@@ -356,7 +356,7 @@
     <?php
     foreach ($grafik_promo as $key => $value) {
         $nama[] = $value->nama_produk;
-        $promo[] = $value->besar;
+        $promo[] = $value->jml;
     }
     ?>
     var ctx = document.getElementById('promo');
